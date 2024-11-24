@@ -1,4 +1,4 @@
-from typing import Sequence, List
+from typing import Sequence, List, Union
 from langchain_core.documents import Document, BaseDocumentCompressor
 from langchain_core.callbacks import Callbacks
 
@@ -18,10 +18,10 @@ class ReciprocalRankFusionReranker(BaseDocumentCompressor):
         extra = "forbid"
 
     def compress_documents(
-        self,
-        ranked_lists: List[List[Document]],
-        query: str = None,
-        callbacks: Callbacks = None,  # Ensure compatibility with retriever
+            self,
+            ranked_lists: List[List[Union[Document, tuple]]],  # Handle both Document and tuple inputs
+            query: str = None,
+            callbacks: Callbacks = None,
     ) -> Sequence[Document]:
         """
         Rerank documents using Reciprocal Rank Fusion (RRF).
@@ -38,8 +38,14 @@ class ReciprocalRankFusionReranker(BaseDocumentCompressor):
 
         # Iterate over ranked lists
         for ranked_list in ranked_lists:
-            for rank, doc in enumerate(ranked_list):
-                doc_id = doc.metadata.get("id", hash(doc.page_content))  # Unique identifier for the document
+            for rank, item in enumerate(ranked_list):
+                # Ensure we are working with a Document object
+                doc = item[0] if isinstance(item, tuple) else item
+                if not isinstance(doc, Document):
+                    raise ValueError(f"Expected Document, got {type(doc)}")
+
+                # Generate a unique identifier for the document
+                doc_id = doc.metadata.get("id", hash(doc.page_content))
                 if doc_id not in fused_scores:
                     fused_scores[doc_id] = 0
                 # Update score using the RRF formula
@@ -49,9 +55,10 @@ class ReciprocalRankFusionReranker(BaseDocumentCompressor):
         reranked_docs = sorted(fused_scores.items(), key=lambda x: x[1], reverse=True)
 
         # Retrieve the original document objects for the top_n results
-        doc_map = {doc.metadata.get("id", hash(doc.page_content)): doc for rl in ranked_lists for doc in rl}
+        doc_map = {doc.metadata.get("id", hash(doc.page_content)): doc for rl in ranked_lists for doc in rl if
+                   isinstance(doc, Document)}
         top_documents = [
-            doc_map[doc_id].copy(update={"metadata": {"rrf_score": score}})
+            doc_map[doc_id].copy(update={"metadata": {**doc_map[doc_id].metadata, "relevance_score": score}})
             for doc_id, score in reranked_docs[:self.top_n]
         ]
 
