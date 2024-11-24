@@ -20,6 +20,7 @@ from langchain_postgres.vectorstores import PGVector
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from lxml import etree
 from PostgresBM25Retriever import PostgresBM25Retriever
+from ReciprocalRankFusionReranker import ReciprocalRankFusionReranker
 from ScoredCrossEncoderReranker import ScoredCrossEncoderReranker
 from tqdm import tqdm
 
@@ -422,6 +423,12 @@ class RAGHelper:
         if self.rerank_model == "flashrank":
             self.logger.info("Setting up the FlashrankRerank.")
             self.compressor = FlashrankRerank(top_n=self.rerank_k)
+        elif self.rerank_model == "rrf":
+            self.logger.info("Setting up the ReciprocalRankFusionReranker.")
+            self.compressor = ReciprocalRankFusionReranker(
+                top_n=self.rerank_k,
+                k=int(os.getenv("rrf_k", 60))  # Default value for RRF's k parameter
+            )
         else:
             self.logger.info("Setting up the ScoredCrossEncoderReranker.")
             self.compressor = ScoredCrossEncoderReranker(
