@@ -8,22 +8,20 @@ class ReciprocalRankFusionReranker(BaseDocumentCompressor):
     A reranker that implements Reciprocal Rank Fusion (RRF) to merge multiple ranked document lists.
     """
 
-    def __init__(self, top_n: int = 10, k: int = 60):
-        """
-        Initialize the RRF reranker.
+    k: int = 60
+    """The parameter in the RRF formula to control the score."""
+    top_n: int = 10
+    """Number of top documents to return after reranking."""
 
-        Args:
-            top_n: Number of top documents to return after reranking.
-            k: The parameter in the RRF formula to control the score.
-        """
-        self.top_n = top_n
-        self.k = k
+    class Config:
+        arbitrary_types_allowed = True
+        extra = "forbid"
 
     def compress_documents(
         self,
         ranked_lists: List[List[Document]],
         query: str = None,
-        callbacks: Callbacks = None,  # Added 'callbacks' to match expected signature
+        callbacks: Callbacks = None,  # Ensure compatibility with retriever
     ) -> Sequence[Document]:
         """
         Rerank documents using Reciprocal Rank Fusion (RRF).
@@ -36,8 +34,6 @@ class ReciprocalRankFusionReranker(BaseDocumentCompressor):
         Returns:
             A list of top_n documents reranked using RRF.
         """
-        fused_scores = {}
-
         fused_scores = {}
 
         # Iterate over ranked lists
@@ -54,7 +50,9 @@ class ReciprocalRankFusionReranker(BaseDocumentCompressor):
 
         # Retrieve the original document objects for the top_n results
         doc_map = {doc.metadata.get("id", hash(doc.page_content)): doc for rl in ranked_lists for doc in rl}
-        top_documents = [doc_map[doc_id].copy(update={"metadata": {"rrf_score": score}})
-                         for doc_id, score in reranked_docs[:self.top_n]]
+        top_documents = [
+            doc_map[doc_id].copy(update={"metadata": {"rrf_score": score}})
+            for doc_id, score in reranked_docs[:self.top_n]
+        ]
 
         return top_documents
