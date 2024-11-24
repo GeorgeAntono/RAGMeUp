@@ -1,5 +1,6 @@
-from typing import Sequence, List, Dict
-from langchain_core.documents import BaseDocumentCompressor, Document
+from typing import Sequence, List
+from langchain_core.documents import Document, BaseDocumentCompressor
+from langchain_core.callbacks import Callbacks
 
 
 class ReciprocalRankFusionReranker(BaseDocumentCompressor):
@@ -7,19 +8,22 @@ class ReciprocalRankFusionReranker(BaseDocumentCompressor):
     A reranker that implements Reciprocal Rank Fusion (RRF) to merge multiple ranked document lists.
     """
 
-    k: int = 60
-    """The parameter in the RRF formula to control the score."""
-    top_n: int = 3
-    """Number of top documents to return after reranking."""
+    def __init__(self, top_n: int = 10, k: int = 60):
+        """
+        Initialize the RRF reranker.
 
-    class Config:
-        arbitrary_types_allowed = True
-        extra = "forbid"
+        Args:
+            top_n: Number of top documents to return after reranking.
+            k: The parameter in the RRF formula to control the score.
+        """
+        self.top_n = top_n
+        self.k = k
 
     def compress_documents(
         self,
         ranked_lists: List[List[Document]],
         query: str = None,
+        callbacks: Callbacks = None,  # Added 'callbacks' to match expected signature
     ) -> Sequence[Document]:
         """
         Rerank documents using Reciprocal Rank Fusion (RRF).
@@ -27,10 +31,13 @@ class ReciprocalRankFusionReranker(BaseDocumentCompressor):
         Args:
             ranked_lists: A list of ranked document lists from different retrievers.
             query: Optional query string (not used in this method but kept for compatibility).
+            callbacks: Optional callbacks for tracing and debugging.
 
         Returns:
             A list of top_n documents reranked using RRF.
         """
+        fused_scores = {}
+
         fused_scores = {}
 
         # Iterate over ranked lists
