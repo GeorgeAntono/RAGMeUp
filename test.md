@@ -1,211 +1,72 @@
 ### Question 1: What are the main considerations or concerns of the LDA paper, and who does the paper reference for explaining the main concept of LDA?
 
-| Field                 | With HYDE                                 | Without HYDE                              |
-|-----------------------|-------------------------------------------|-------------------------------------------|
-| **Documents Found**   | document nr: 0 
- source: data/Week 6 reading b -2021-SSCI-AComparativeStudyOfFuzzyTopicModelsAndLDAInTermsOfInterpretability.pdf 
- provenance: 0.993 
- [3] Blei, D. M., Ng, A. Y ., & Jordan, M. I. (2003). Latent dirichlet
-allocation. the Journal of machine Learning research, 3, 993-1022.
-[4] Blei, D. M., & Lafferty, J. D. (2006). Dynamic topic models. In
-Proceedings of the 23rd international conference on Machine learning
-(pp. 113-120).
-[5] Blei, D., & Lafferty, J. (2006). Correlated topic models. Advances in
-neural information processing systems, 18, 147.
-[6] Blei, D. M. (2012). Probabilistic topic models. Communications of the
-ACM, 55(4), 77-84. 
- 
-document nr: 1 
- source: data/week 6.pdf 
- provenance: 0.988 
- structure of the documents and extract topics (e.g. BERTopic).
-1) Blei, D. M., Ng, A. Y., & Jordan, M. I. (2003). Latent dirichlet allocation. Journal of machine Learning research, 3(Jan), 993-1022.
-2) Grootendorst, M. (2022). BERTopic: Neural topic modeling with a class-based TF-IDF procedure. arXiv preprint arXiv:2203.05794.
-3) Landauer, T. K., Foltz, P. W., & Laham, D. (1998). An introduction to latent semantic analysis. Discourse processes, 25(2-3), 259-284. 
- 
-document nr: 2 
- source: data/Week 6 reading d - LatenDirichletAllocation (1).pdf 
- provenance: 0.981 
- text modeling, the topic probabilities provide an explicit representation of a document. We present
-efﬁcient approximate inference techniques based on variational methods and an EM algorithm for
-empirical Bayes parameter estimation. We report results in document modeling, text classiﬁcation,
-and collaborative ﬁltering, comparing to a mixture of unigrams model and the probabilistic LSI
-model.
-1. Introduction
-In this paper we consider the problem of modeling text corpora and other collections of discrete 
- 
-document nr: 3 
- source: data/week 6.pdf 
- provenance: 0 
- JM2050 Natural Language Processing 2024 –2025
-Uzay Kaymak 82
-We follow a three-step approach 
-1. Create topics (LDA & FLSA-W)*
-2. Interpreting Topics with a Domain Expert and ChatGPT
-3. Compare the generated summaries with those 
-produced by a domain expert
-• Blei, D. M., Ng, A. Y., & Jordan, M. I. (2003). Latent dirichl et allocation.Journal of machine Learning research, 3(Jan), 993-1022. 
- 
-                          | document nr: 0 
- source: data/Week 3 reading c - Mykolo etal (2013)-Word2Vec.pdf 
- provenance: 0.97 
- the most successful concept is to use distributed representations of words [10]. For example, neural
-network based language models signiﬁcantly outperform N-gram models [1, 27, 17].
-1.1 Goals of the Paper
-The main goal of this paper is to introduce techniques that can be used for learning high-quality word
-vectors from huge data sets with billions of words, and with millions of words in the vocabulary. As
-far as we know, none of the previously proposed architectures has been successfully trained on more
-1 
- 
-document nr: 1 
- source: data/Week 6 reading d - LatenDirichletAllocation (1).pdf 
- provenance: 0.957 
- conclusions.
-2. Notation and terminology
-We use the language of text collections throughout the paper, referring to entities such as “words,”
-“documents,” and “corpora.” This is useful in that it helps to guide intuition, particularly when
-we introduce latent variables which aim to capture abstract notions such as topics. It is important
-to note, however, that the LDA model is not necessarily tied to text, and has applications to other 
- 
-document nr: 2 
- source: data/Week 7 reading .pdf 
- provenance: 0.89 
- supervised labels speciﬁc to the desired task. The main advantage of ﬁne-tuning is strong
-performance on many benchmarks. The main disadvantages are the need for a new large
-dataset for every task, the potential for poor generalization out-of-distribution [MPL19], and
-the potential to exploit spurious features of the training data [GSL+18, NK19]. We focus
-on task-agnostic performance, leaving ﬁne-tuning for future work. 
- 
-document nr: 3 
- source: data/Week 9 deep_learning_1.pdf 
- provenance: 0 
- GloVeHey! This is something that we do in LSA/LDA too! 
- 
-document nr: 4 
- source: data/Week 2 reading - 2_TextProc_2023.pdf 
- provenance: 0 
- How is lemmatization done? The most sophisticated methods for lemmatization
-involve complete morphological parsing of the word. Morphology is the study of
-the way words are built up from smaller meaning-bearing units called morphemes .morpheme
-Two broad classes of morphemes can be distinguished: stems —the central mor-stem
-pheme of the word, supplying the main meaning— and afﬁxes —adding “additional”afﬁx
-meanings of various kinds. So, for example, the word fox consists of one morpheme 
- 
-document nr: 5 
- source: data/Week 6 reading d - LatenDirichletAllocation (1).pdf 
- provenance: 0 
- alternative approach is the “folding-in” heuristic suggested by Hofmann (1999), where one ignores
-thep (z |d ) parameters and reﬁts p (z |d new ). Note that this gives the pLSI model an unfair advantage
-by allowing it to reﬁt k −1 parameters to the test data.
-LDA suffers from neither of these problems. As in pLSI, each document can exhibit a different
-proportion of underlying topics. However, LDA can easily assign probability to a new document; 
- 
-document nr: 6 
- source: data/Week 7 reading .pdf 
- provenance: 0 
- allowed the model to naturally carry out completions and created a corpus of such completions for
-studying co-occurrence of words.
-The following is an example output from the model:
-"Buddhists are divided into two main branches - Theravada and Mahayana.
-Theravada is the more conservative branch, centering on monastic life
-and the earliest sutras and refusing to recognize the later Mahayana
-sutras as authentic." 
- 
-document nr: 7 
- source: data/week 6.pdf 
- provenance: 0 
- • Rijcken, E., Scheepers, F., Mosteiro, P., Zervanou, K., Spruit , M., & Kaymak, U. (2021). A comparative study of fuzzy topic models 
-and LDA in terms of interpretability. In 2021 IEEE Symposium Series on Computational Intelligence (SSCI) (pp. 1-8). IEEE. 
- 
-document nr: 8 
- source: data/Week 8 Tutorial Topic Modeling.pdf 
- provenance: 0 
- # Print the topics
-for topic in lda_model.print_topics():
-    print(topic)
-#Get coherence score
-print(CoherenceModel(model=lda_model, texts=data, dictionary=dictionary, coherence='c_v').get_coherence()) 
- 
-document nr: 9 
- source: data/Week 12 aGAI_ChatGPT_LLM.pdf 
- provenance: 0 
- UnderstandLing
-LLMs and their applications
-J A D S
-E R I K  T R O M P  - U N D E R S T A N D L I N G 
- 
-document nr: 10 
- source: data/Week 6 reading d - LatenDirichletAllocation (1).pdf 
- provenance: 0 
- L A TENT D IRICHLET A LLOCA TION
-β
-α zwθ N M
-zθ
-φγ
-N M
-Figure 5: (Left) Graphical model representation of LDA. (Right) Graphical model representation
-of the variational distribution used to approximate the posterior in LDA.
-5.1 Inference
-The key inferential problem that we need to solve in order to use LDA is that of computing the
-posterior distribution of the hidden variables given a document:
-p (θ , z |w , α , β )= p (θ , z , w |α , β )
-p (w |α , β ) . 
- 
-document nr: 11 
- source: data/Week 6 reading b -2021-SSCI-AComparativeStudyOfFuzzyTopicModelsAndLDAInTermsOfInterpretability.pdf 
- provenance: 0 
- relationships [47] and has been used before as a topic embed-
-ding in the medical domain [29], [40]. LDA is a probabilistic
-model and assumes that documents are formed by a generative
-process [3]. Each document is a distribution over C topics in
-this process, and each topic is a distribution over M words.
-Thus, if document j has a high probability of containing
-topic k, then topic k’s most probable words are likely to be
-present in document j. Yet, both the distributions of topics 
- 
-document nr: 12 
- source: data/week 6.pdf 
- provenance: 0 
- JM2050 Natural Language Processing 2024 –2025
-Uzay Kaymak 15
-Latent Dirichlet Allocation (LDA)
-LDA assumes documents can be created by sampling from:
-- a distribution of topics over documents.- a distribution of words over topics. 
-15 
- 
-document nr: 13 
- source: data/Week 6 reading b -2021-SSCI-AComparativeStudyOfFuzzyTopicModelsAndLDAInTermsOfInterpretability.pdf 
- provenance: 0 
- Also, FLSA-W’s coherence scores are higher for almost
-all the number of topics, with 20-word-topics. These
-changes indicate that the number of words per topic may
-impact a topic’s quality, depending on the used topic
-model.
-3) LDA has a much higher variation in coherence score
-than the other models for almost all settings. This indi-
-cates that our proposed models and FLSA are more sta-
-ble topic models than LDA, since there is less variability
-in the models that they produce. The above ﬁndings are 
- 
-                       |
-| **LLM's Final Answer**| According to Document 0, the main considerations or concerns of the LDA paper are not explicitly mentioned. However, it is clear that the authors aimed to introduce a new method for topic modeling.
+| Field                  | With HYDE                                   | Without HYDE                                |
+|------------------------|---------------------------------------------|---------------------------------------------|
+| **Documents Found**    | document n                            | document n                         |
+| **LLM's Final Answer** | According to Document 0, the main considerations or concerns of the LDA paper are not explicitly mentioned. However, it is clear that the authors aimed to introduce a new method for topic modeling.<br><br>To explain the main concept of LDA, the authors reference the concept of "Latent Dirichlet Allocation" itself, which implies that they are building upon existing knowledge of Dirichlet distributions and allocation. <br><br>However, if we look at Document 1, which references the original LDA paper by Blei, Ng, and Jordan (2003), it seems that the authors of the LDA paper do not reference any specific work for explaining the main concept of LDA. Instead, they seem to be introducing a novel approach to topic modeling.<br><br>But if we take into account the context provided by Document 3, where the authors mention that they are using LDA and another technique called FLSA-W, it suggests that the main concern of the LDA paper might be its ability to create topics that can be interpreted by a domain expert.<br><br>It is also worth noting that the authors of the LDA paper do not mention any specific references for explaining the main concept of LDA, but rather focus on presenting their own contribution to the field of topic modeling.                          | According to Document 10, the main inferential problem that needs to be solved in order to use LDA is computing the posterior distribution of the hidden variables given a document: p(θ, z \| w, α, β) = p(θ, z, w \| α, β) / p(w \| α, β).<br><br>However, the main considerations or concerns of the LDA paper are not explicitly stated in the provided documents.<br><br>But according to Document 11, LDA assumes that documents are formed by a generative process, where each document is a distribution over C topics, and each topic is a distribution over M words. <br><br>As for the references, the papers referenced in the provided documents do not provide information about the authors of the original LDA paper. However, the authors mentioned in the provided documents are:<br><br>* Blei, David M., Ng, Andrew Y., and Jordan, Michael I. (2003) - although this is not directly mentioned in any of the provided documents but is widely known as the originators of the LDA algorithm.<br><br>The provided documents also mention other researchers' works like Hofmann (1999), GSL+18, NK19, MPL19, Rijcken et al. (2021), etc., but they are not the original authors of the LDA concept.                       |
+| **Time Taken**         | 46.72 seconds                            | 23.69 seconds                         |
 
-To explain the main concept of LDA, the authors reference the concept of "Latent Dirichlet Allocation" itself, which implies that they are building upon existing knowledge of Dirichlet distributions and allocation. 
+### Question 2: What are the main challenges of prompt engineering according to research?
 
-However, if we look at Document 1, which references the original LDA paper by Blei, Ng, and Jordan (2003), it seems that the authors of the LDA paper do not reference any specific work for explaining the main concept of LDA. Instead, they seem to be introducing a novel approach to topic modeling.
+| Field                  | With HYDE                                   | Without HYDE                                |
+|------------------------|---------------------------------------------|---------------------------------------------|
+| **Documents Found**    | document n                            | document n                         |
+| **LLM's Final Answer** | According to Document 2, the main challenge of prompt engineering is that the performance of language models (LMs) strongly depends on the scale rather than the model shape, suggesting that finding the optimal scale is crucial for effective prompt engineering.<br><br>Source: Document 2, id: 007371725d9f1cf89f88b9e1221dc82d, source: data/Week 6 reading c 2023-IFSA-InterpretingTopicModelsWithChatGPT.pdf                          | According to Document 3, discussions of Breast-COMA, the main challenges of prompt engineering are:<br><br>1. **Privacy issue**: Using the ChatGPT API resulted in patients' data being public, violating patients' privacy rights.<br>2. **Security issue**: LLM lacks professionalism and interpretability, posing potential security risks to patients.<br>3. **Prompt engineering limitations**: Prompt design lacks clear optimization directions and relies on human experience. Few-shot is extremely sensitive to example selection, distribution, and design.<br><br>Additionally, Document 11 mentions that ground truth in prompts matters little, and instead, other key aspects of the demonstrations are key drivers in end-task performance, such as:<br><br>1. **Label space**<br>2. **Distribution of the input text**<br>3. **Overall format of the sequence**<br><br>These challenges highlight the complexities and nuances involved in designing effective prompts for language models like ChatGPT.                       |
+| **Time Taken**         | 37.87 seconds                            | 16.26 seconds                         |
 
-But if we take into account the context provided by Document 3, where the authors mention that they are using LDA and another technique called FLSA-W, it suggests that the main concern of the LDA paper might be its ability to create topics that can be interpreted by a domain expert.
+### Question 3: What are the different types of topic modeling 
 
-It is also worth noting that the authors of the LDA paper do not mention any specific references for explaining the main concept of LDA, but rather focus on presenting their own contribution to the field of topic modeling.                        | According to Document 10, the main inferential problem that needs to be solved in order to use LDA is computing the posterior distribution of the hidden variables given a document: p(θ, z | w, α, β) = p(θ, z, w | α, β) / p(w | α, β).
+| Field                  | With HYDE                                   | Without HYDE                                |
+|------------------------|---------------------------------------------|---------------------------------------------|
+| **Documents Found**    | document n                            | document n                         |
+| **LLM's Final Answer** | Based on the provided documents, there are several types of topic modeling mentioned.<br><br>According to Document 1, "Latent Dirichlet Allocation" (LDA) is a type of topic modeling algorithm developed by Blei et al. (2003) [1]. It is a probabilistic model that infers the underlying topic structure of a corpus based on the distribution of words.<br><br>Document 2 mentions "Fuzzy Latent Semantic Analysis" (FLSA) as another type of topic modeling algorithm, which is an improvement over traditional LDA. FLSA groups similar documents based on the words they contain and provides more interpretable results.<br><br>Additionally, Document 3 introduces "Fuzzy Topic Modeling" (FTM) algorithms, such as FLSA-W, which considers the degree of membership of a word to a topic. This approach allows for more nuanced understanding of the relationships between words and topics.<br><br>Furthermore, Document 1 also mentions "Correlated Topic Models" (CTMs) developed by Blei and Lafferty (2006) [5], which extend the basic LDA model by incorporating correlations between topics.<br><br>Lastly, Document 1 references "Dynamic Topic Models" (DTMs) proposed by Blei and Lafferty (2006) [4], which allow for time-evolving topics and are useful for analyzing temporal data.<br><br>These are some of the different types of topic modeling techniques mentioned in the provided documents.                          | According to Document 4, some of the popular topic modeling techniques include:<br><br>* Latent Dirichlet Allocation (LDA) [3]<br>* Topics over Time model [48]<br>* Dynamic Topic Model [4]<br>* Pachinko Allocation Model [22]<br>* Correlated Topic Model [5]<br><br>Additionally, Document 1 mentions two proposed topic modeling methods that can reduce overlap between topics: FLSA-W and another method.<br><br>Furthermore, Document 5 explains that traditional topic modeling algorithms return two matrices, but this need not be the case for all models.<br><br>Lastly, Document 8 describes the output of topic models as consisting of two matrices: P(Wi\|Tk) and P(Tk\|Dj).<br><br>These are some examples of the different types of topic modeling techniques mentioned in the provided documents.                       |
+| **Time Taken**         | 55.43 seconds                            | 16.12 seconds                         |
 
-However, the main considerations or concerns of the LDA paper are not explicitly stated in the provided documents.
+### Question 4: What are the limitations of BERTopic?
 
-But according to Document 11, LDA assumes that documents are formed by a generative process, where each document is a distribution over C topics, and each topic is a distribution over M words. 
+| Field                  | With HYDE                                   | Without HYDE                                |
+|------------------------|---------------------------------------------|---------------------------------------------|
+| **Documents Found**    | document n                            | document n                         |
+| **LLM's Final Answer** | According to Document 2, which discusses BERTopic-Neural Topic Modeling With A Class-Based TF-IDF procedure, there isn't an explicit discussion about the limitations of BERTopic. However, I can infer some potential limitations based on related research.<br><br>One possible limitation of BERTopic could be its reliance on pre-trained language models like SBERT or Doc2Vec, which might not perform well on low-resource languages or domains where these models haven't been extensively trained. This is because BERTopic leverages the strengths of these pre-trained models to generate topics.<br><br>Another potential limitation could be the computational cost associated with training BERTopic, especially when working with large datasets. As mentioned in Document 2, the authors used multiple language models and fixed parameters for comparison purposes, indicating that BERTopic may require significant computational resources.<br><br>Additionally, Document 1 discusses various topic modeling techniques, including those that don't rely on pre-trained language models. These alternatives might offer more flexibility and adaptability to specific domains or languages, potentially making them more suitable for certain applications.<br><br>Please note that these are inferred limitations and not explicitly stated in the provided documents. For a comprehensive understanding of BERTopic's limitations, it would be best to consult the original paper by Song et al. (2020) or other relevant sources.                          | According to Document 5, "BERTopic assumes that each document only contains a single topic" which is a limitation of the model. Additionally, Document 12 mentions that the topic representation itself does not directly account for contextual relationships between words, making the interpretation of topics potentially redundant.<br><br>Furthermore, Document 13 highlights that while BERTopic has several strengths, there are also weaknesses to consider. Specifically, it notes that the model assumes a single topic per document, which may not accurately capture complex or multi-topic documents.<br><br>Source: Documents 5, 12, and 13.                       |
+| **Time Taken**         | 70.46 seconds                            | 13.46 seconds                         |
 
-As for the references, the papers referenced in the provided documents do not provide information about the authors of the original LDA paper. However, the authors mentioned in the provided documents are:
+### Question 5: how do researchers propose attention models to work?What is the methodology of word2vec paper
 
-* Blei, David M., Ng, Andrew Y., and Jordan, Michael I. (2003) - although this is not directly mentioned in any of the provided documents but is widely known as the originators of the LDA algorithm.
+| Field                  | With HYDE                                   | Without HYDE                                |
+|------------------------|---------------------------------------------|---------------------------------------------|
+| **Documents Found**    | document n                            | document n                         |
+| **LLM's Final Answer** | According to the provided documents, I found information related to the Word2Vec paper and its methodology.<br><br>In the Word2Vec paper, researchers propose a method called "skip-gram" to learn word embeddings. This involves computing the probability of a target word given its context words within a certain window size (as shown in Document 0 and Document 1).<br><br>To achieve this, they apply the logistic (sigmoid) function to the dot product of the embeddings of the target word with each context word. However, they don't directly provide the embeddings for each target word and context word; instead, they aim to learn these embeddings through the training process.<br><br>The learning algorithm (described in Document 2) maximizes the similarity of the target word with the actual context words and minimizes the similarity with the negative sampled non-neighbor words. This is done by adjusting the embeddings to optimize the loss function.<br><br>The key steps of the Word2Vec methodology involve:<br><br>1. Computing the probability of a target word given its context words using the logistic function and dot products of embeddings.<br>2. Learning the embeddings through maximizing the similarity of target-context word pairs and minimizing the similarity with negative samples.<br><br>Source: Documents 0, 1, and 2 from "data/Week 3 reading b - vectorsemantics2024.pdf".                          | To answer your question, I'll refer to Document 5, which discusses the comparison of attention models to word2vec.<br><br>According to Document 5, "Attention models" (source: data/Week 10 deep_learning_2.pdf), researchers propose attention models to work by focusing on specific parts of the input sequence that are most relevant to the task at hand. This is in contrast to traditional methods like word2vec, which treats all words equally and assigns them the same weight.<br><br>Regarding the methodology of the word2vec paper, it is not explicitly mentioned in the provided documents. However, based on general knowledge, the word2vec paper proposes a method for representing words as vectors in a high-dimensional space, where semantically similar words are mapped to nearby points. The methodology involves training a neural network to predict the context words given a target word, and the weights learned during this process are used to compute the vector representation of each word.<br><br>For more information on the word2vec paper, please consult the original research paper by Mikolov et al. (2013).<br><br>Source: Document 5, "Attention models", source: data/Week 10 deep_learning_2.pdf                       |
+| **Time Taken**         | 46.5 seconds                            | 19.25 seconds                         |
 
-The provided documents also mention other researchers' works like Hofmann (1999), GSL+18, NK19, MPL19, Rijcken et al. (2021), etc., but they are not the original authors of the LDA concept.                     |
-| **Time Taken**        | 46.72 seconds                          | 23.69 seconds                       |
+### Question 6: What model is faster than LDA?
+
+| Field                  | With HYDE                                   | Without HYDE                                |
+|------------------------|---------------------------------------------|---------------------------------------------|
+| **Documents Found**    | document n                            | document n                         |
+| **LLM's Final Answer** | To determine which model is faster than Latent Dirichlet Allocation (LDA), I'll refer to Document 1: "Text Classification and Naive Bayes" (Source: data/Week 3 reading a - nb24aug.pdf).<br><br>According to this document, Naive Bayes is generally faster than LDA because it has fewer parameters to estimate and doesn't require complex computations like LDA does.<br><br>In fact, the document states that Naive Bayes is often preferred when speed is crucial in text classification tasks, especially for large datasets. <br><br>Therefore, based on this information, Naive Bayes is indeed faster than LDA.                          | According to Document 4, "self-attention layers are faster than recurrent layers when the sequence length n is smaller than the representation dimensionality d." However, I did not find information about a model being faster than LDA directly.<br><br>However, according to Document 1, the author mentions that their model outperforms the best previously reported models, including ensembles, and surpasses all previously published models and ensembles, at a fraction of the training cost of any of the competitive models. But it does not explicitly state that it is faster than LDA.<br><br>On the other hand, Document 6 states that "CTM and LDA, are faster than the neural network-based" model.                       |
+| **Time Taken**         | 35.83 seconds                            | 14.71 seconds                         |
+
+### Question 7: What is the fastest topic modeling system?
+
+| Field                  | With HYDE                                   | Without HYDE                                |
+|------------------------|---------------------------------------------|---------------------------------------------|
+| **Documents Found**    | document n                            | document n                         |
+| **LLM's Final Answer** | Based on the provided documents, I found that the Latent Dirichlet Allocation (LDA) [3] is mentioned as performing well on data documents with more than 50 words and no complex topic structures (Document 2). However, it does not provide information about the speed of the system.<br><br>To find the answer, I also looked at Document 1, which mentions several topic modeling techniques, including Latent Dirichlet Allocation (LDA) [3], Dynamic Topic Model [4], and Correlated Topic Model [5]. Unfortunately, none of these documents explicitly state the speed of these systems.<br><br>However, I did find some related information in Document 2, where it states that "For documents with more words, the Topics over Time model [48] and Dynamic Topic Model [4] are suitable for capturing changes of topics over time." This implies that the Dynamic Topic Model might be faster or more efficient for large datasets due to its ability to capture temporal changes.<br><br>Unfortunately, without explicit information about the speed of these systems, I cannot definitively say which one is the fastest. If you need further clarification or details about the speed of these topic modeling systems, please let me know, and I'll try to help you find the necessary information.                          | According to Document 4, which compares the computation time (wall time) of various topic models on the Trump dataset, we can see that some topic models like CTM (Computationally Efficient Topic Model) are faster than others.<br><br>However, based on the information provided, I cannot definitively say which topic modeling system is the absolute fastest. But, according to the graph shown in Document 4, CTM seems to perform better in terms of speed when dealing with larger vocabularies.<br><br>Source: Document 4, id: 358113e00fc16c479a0cdc8511784590, pk: 454311103152261756, source: data/Week 6 reading a - BERTopic-NeuralTopicModelingWithAClassBasedTF-IDFprocedure (1).pdf                       |
+| **Time Taken**         | 40.54 seconds                            | 16.05 seconds                         |
+
+### Question 8: Word representations across different languages using SkipGram
+
+| Field                  | With HYDE                                   | Without HYDE                                |
+|------------------------|---------------------------------------------|---------------------------------------------|
+| **Documents Found**    | document n                            | document n                         |
+| **LLM's Final Answer** | According to Document 2, the Skip-Gram model is mentioned as one of the baselines used in the study, where the step size γ0 is set to 0.025 for the skipgram baseline.<br><br>Source: Document 2, id: 99162db67c15bc1fdc65739f7877514b                          | To address the question regarding word representations across different languages using SkipGram, I'll rely on Document 1 and Document 10.<br><br>According to Document 1, titled "Enriching Word Vectors with Subword Information," the authors propose a method to improve vector representations for morphologically rich languages by incorporating character-level information. They suggest representing words as the sum of their constituent character n-grams, which helps capture the morphology of words.<br><br>Similarly, Document 10 discusses a new approach based on the SkipGram model, where each word is represented as a bag of character n-grams. This method enables computing word representations for words that didn't appear in the training data and allows for faster training on large corpora.<br><br>Both documents highlight the importance of considering subword information when learning word representations, especially for languages with complex morphology. By doing so, the models can better capture the relationships between words and their components, leading to improved performance in various NLP tasks.<br><br>Source: Documents 1 and 10, specifically "Enriching Word Vectors with Subword Information" and "A New Approach Based on the Skipgram Model."                       |
+| **Time Taken**         | 36.7 seconds                            | 17.87 seconds                         |
+
+### Question 9: How did the researchers use attention in transformers?
+
+| Field                  | With HYDE                                   | Without HYDE                                |
+|------------------------|---------------------------------------------|---------------------------------------------|
+| **Documents Found**    | document n                            | document n                         |
+| **LLM's Final Answer** | According to Document 1, researchers used the attention function in transformers by computing it on a set of queries simultaneously, packed together into a matrix Q, and applying a softmax function to obtain the weights on the values. They divided each query by √dk and multiplied it with the keys matrix K, then applied another softmax function to get the weights on the keys. Finally, they took the dot product of these weights with the values matrix V.<br><br>Source: Document 1, "data/Week 9 reading.pdf", id: f96c10482e0aa364ea5b285e155621d2                          | According to Document 3 and Document 7, researchers used attention in transformers by adding "positional" encoding to the inputs (Document 12). This means they incorporated a mechanism to account for the order of words or tokens in the input sequence, allowing the model to better understand the context and relationships between different parts of the text.<br><br>Additionally, as mentioned in Document 9, attention is a key component of transformers, enabling the model to focus on specific parts of the input when generating output. The attention mechanism allows the model to weigh the importance of different input elements and selectively attend to the most relevant ones.<br><br>Source: Documents 3, 7, and 9.                       |
+| **Time Taken**         | 37.63 seconds                            | 13.44 seconds                         |
 
